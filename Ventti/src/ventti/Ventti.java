@@ -14,6 +14,7 @@ public class Ventti {
         // TODO code application logic here
         //Moi tää on testi
         System.out.println("Aika jännä");
+        System.out.println("Testi");
     }
     
 }
