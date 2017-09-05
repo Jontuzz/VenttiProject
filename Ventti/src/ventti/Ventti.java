@@ -1,8 +1,4 @@
-/*
- * To change this license header, choose License Headers in Project Properties.
- * To change this template file, choose Tools | Templates
- * and open the template in the editor.
- */
+
 package ventti;
 
 /**
@@ -16,6 +12,8 @@ public class Ventti {
      */
     public static void main(String[] args) {
         // TODO code application logic here
+        //Moi tää on testi
+        System.out.println("Aika jännä");
     }
     
 }
