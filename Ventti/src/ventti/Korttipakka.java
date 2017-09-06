@@ -31,6 +31,7 @@ public class Korttipakka {
         }
     }
     
+    //muutetaan ArrayList tulostus muotoon
     public String toString() {
         return "Korttipakassa on kortit: " + korttiPakka;
     }

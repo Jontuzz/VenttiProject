@@ -10,10 +10,12 @@ public class Kortti {
         this.arvo = arvo;
     }
     
+    //metodi kortin maan palauttamiseen
     public String getMaa() {
         return this.maa;
     }
     
+    //metodi kortin arvon palauttamiseen
     public int getArvo() {
         return this.arvo;
     }
