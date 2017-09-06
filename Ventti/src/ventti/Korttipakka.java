@@ -2,36 +2,35 @@
 package ventti;
 
 import java.util.ArrayList;
-import java.util.HashMap;
-import java.util.Iterator;
 
 public class Korttipakka {
     
     //luodaan ArrayList maita varten
-    private ArrayList<String> maat = new ArrayList<>();
+    private ArrayList<String> korttienMaat = new ArrayList<>();
     
     //ArrayList korttipakan korttejavarten
     private ArrayList<Kortti> korttiPakka = new ArrayList<>();
     
     public Korttipakka() {
         //lisätään tunnetut korttien maat ArrayListiin
-        maat.add("Pata");
-        maat.add("Ruutu");
-        maat.add("Risti");
-        maat.add("Hertta");
+        korttienMaat.add("Pata");
+        korttienMaat.add("Ruutu");
+        korttienMaat.add("Risti");
+        korttienMaat.add("Hertta");
         
         //suoritetaan niin monta kertaa kuin maita on (eli 4 kertaa)
-        //loopataan siten, että jokaiselle maalle tulee arvot 2-14
-        for (int maidenLKM = 0; maidenLKM < 4; maidenLKM++) {
-            //loopataan korttien arvot (arvot alkaa 2 ja loppuu ässään eli 14)
+        for (int maanIndeksi = 0; maanIndeksi < 4; maanIndeksi++) {
+            //loopataan siten, että jokaiselle maalle tulee arvot 2-14
+            //arvot alkavat 2 ja loppuvat ässään eli 14
             for (int kortinArvo = 2; kortinArvo <= 14; kortinArvo++) {
-                //luodaan kortti olio ja lisätään kortti olio ArrayListiin(yksi kerrallaan)
-                korttiPakka.add(new Kortti(maat.get(maidenLKM), kortinArvo));
+                //luodaan kortti olio ja lisätään kortti olion viittaus ArrayListiin (yksi kerrallaan)
+                korttiPakka.add(new Kortti(korttienMaat.get(maanIndeksi), kortinArvo));
             }
         }
     }
     
     //muutetaan ArrayList tulostus muotoon
+    //tällä metodilla voidaan tulostaa ArrayList
     public String toString() {
         return "Korttipakassa on kortit: " + korttiPakka;
     }
