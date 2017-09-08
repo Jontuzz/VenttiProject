@@ -29,9 +29,22 @@ public class Korttipakka {
         }
     }
     
+    public Kortti getKortti(int indeksi) {
+        return this.korttiPakka.get(indeksi);
+    }
+    
+    public void poistaKorttiPakasta(int indeksi) {
+        System.out.println("------ Poistetaan kortti " + this.korttiPakka.get(indeksi));
+        this.korttiPakka.remove(getKortti(indeksi));
+    }
+    
+    public int getPakanKoko() {
+        return this.korttiPakka.size() - 1;
+    }
+    
     //muutetaan ArrayList tulostus muotoon
     //tällä metodilla voidaan tulostaa ArrayList
     public String toString() {
-        return "Korttipakassa on kortit: " + korttiPakka;
+        return "Korttipakassa on kortit: " + this.korttiPakka;
     }
 }

@@ -1,7 +1,13 @@
 package ventti;
 
+import java.util.Random;
+
 public class VenttiGUI extends javax.swing.JFrame {
 
+    Korttipakka korttipakka = new Korttipakka();
+    Emanta jakaja = new Emanta();
+    Pelaaja pelaaja = new Pelaaja();
+    
     /**
      * Creates new form VenttiGUI
      */
@@ -27,6 +33,11 @@ public class VenttiGUI extends javax.swing.JFrame {
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         jButton2.setText("Lisää");
+        jButton2.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jButton2ActionPerformed(evt);
+            }
+        });
         getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
 
         jButton1.setText("Jää");
@@ -39,14 +50,38 @@ public class VenttiGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
+    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
+        //lisää nappi
+        
+        int min = 0;
+        int max = korttipakka.getPakanKoko();
+        int range = (int) (max - min) + 1;
+        
+        int random = (int) (Math.random() * range) + min;
+        System.out.println("----------------------------------");
+        //lisätään pelaajalle kortti, joka poistetaan
+        pelaaja.lisaaKorttiPelaajalle(korttipakka.getKortti(random));
+        System.out.println("------ Lisätään kortti pelaajalle " + korttipakka.getKortti(random));
+        //poistetaan kortti koko korttipakasta
+        korttipakka.poistaKorttiPakasta(random);
+        
+        System.out.println("--------------------------");
+        System.out.println("Korttipakka" + korttipakka);
+        System.out.println("Pelaajan kortit" + pelaaja);
+        System.out.println("Korttipakka" + korttipakka);
+        
+        System.out.println("Pelaajan korttien summa " + pelaaja.getPelaajanKorttienSumma());
+    }//GEN-LAST:event_jButton2ActionPerformed
+
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
         
         //luodaan uusi korttipakka
-        Korttipakka korttipakka = new Korttipakka();
-        Emanta jakaja = new Emanta();
+        
+
+        
         
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
