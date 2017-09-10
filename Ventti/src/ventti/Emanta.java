@@ -13,6 +13,10 @@ public class Emanta {
         this.emannanPelaamatKortit.add(emannanKortti);
     }
     
+    public int getEmannanKorttienMaara() {
+        return this.emannanPelaamatKortit.size();
+    }
+    
     public int getEmannanKorttienSumma() {
         int korttienSumma = 0;
         
