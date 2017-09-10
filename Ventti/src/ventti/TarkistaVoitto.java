@@ -19,6 +19,8 @@ public class TarkistaVoitto {
         } else {
             if (this.emannanKorttienSumma < this.maksimiArvo && this.pelaajanKorttienSumma > this.maksimiArvo) {
                 return "Emäntä voitti";
+            } else if (this.emannanKorttienSumma > this.maksimiArvo && this.pelaajanKorttienSumma > this.maksimiArvo) {
+                return "Kumpikaan ei voittanut!";
             } else if (this.emannanKorttienSumma == this.pelaajanKorttienSumma) {
                 return "Emäntä voitti!";
             }

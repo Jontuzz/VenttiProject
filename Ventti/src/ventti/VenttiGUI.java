@@ -95,10 +95,9 @@ public class VenttiGUI extends javax.swing.JFrame {
     private void lisääButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lisääButtonActionPerformed
         //kun pelaaja painaa "Lisää" nappia
 
-        if (pelaaja.getKorttienMaara() >= 0) {
-            jääButton.setVisible(true);
-            jääButton.setEnabled(true);
-        }
+        jääButton.setVisible(true);
+        jääButton.setEnabled(true);
+        
 
         int min = 0;
         int max = korttipakka.getPakanKoko();
