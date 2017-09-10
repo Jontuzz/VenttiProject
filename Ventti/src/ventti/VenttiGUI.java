@@ -19,7 +19,9 @@ public class VenttiGUI extends javax.swing.JFrame {
         jääButton.setEnabled(false);
         jääButton.setVisible(false);
         TextAreaPelaajanKortit.setEditable(false);
-        pelaajaSumma.setText("Korttien summa: " + pelaaja.getPelaajanKorttienSumma());
+        pelaajaSummaText.setText("Korttien summa: " + pelaaja.getPelaajanKorttienSumma());
+        TextAreaEmannanKortit.setEditable(false);
+        emantaSummaText.setText("Korttien summa: " + pelaaja.getPelaajanKorttienSumma());
     }
 
     /**
@@ -33,9 +35,12 @@ public class VenttiGUI extends javax.swing.JFrame {
 
         lisääButton = new javax.swing.JButton();
         jääButton = new javax.swing.JButton();
+        jScrollPane3 = new javax.swing.JScrollPane();
+        TextAreaEmannanKortit = new javax.swing.JTextArea();
+        emantaSummaText = new javax.swing.JTextField();
         jScrollPane2 = new javax.swing.JScrollPane();
         TextAreaPelaajanKortit = new javax.swing.JTextArea();
-        pelaajaSumma = new javax.swing.JTextField();
+        pelaajaSummaText = new javax.swing.JTextField();
         labelBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -58,6 +63,15 @@ public class VenttiGUI extends javax.swing.JFrame {
         });
         getContentPane().add(jääButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, -1, -1));
 
+        TextAreaEmannanKortit.setColumns(20);
+        TextAreaEmannanKortit.setLineWrap(true);
+        TextAreaEmannanKortit.setRows(10);
+        TextAreaEmannanKortit.setText("Pelaajan kortit:");
+        jScrollPane3.setViewportView(TextAreaEmannanKortit);
+
+        getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 200));
+        getContentPane().add(emantaSummaText, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 200, 140, -1));
+
         TextAreaPelaajanKortit.setColumns(20);
         TextAreaPelaajanKortit.setLineWrap(true);
         TextAreaPelaajanKortit.setRows(10);
@@ -65,7 +79,7 @@ public class VenttiGUI extends javax.swing.JFrame {
         jScrollPane2.setViewportView(TextAreaPelaajanKortit);
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 140, 200));
-        getContentPane().add(pelaajaSumma, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 140, -1));
+        getContentPane().add(pelaajaSummaText, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 140, -1));
 
         labelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ventti/korttiPöytä.jpg"))); // NOI18N
         getContentPane().add(labelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 280));
@@ -102,7 +116,7 @@ public class VenttiGUI extends javax.swing.JFrame {
         korttipakka.poistaKorttiPakasta(random);
         
         
-        pelaajaSumma.setText("Korttien summa: " + pelaaja.getPelaajanKorttienSumma());
+        pelaajaSummaText.setText("Korttien summa: " + pelaaja.getPelaajanKorttienSumma());
         
         //System.out.println("--------------------------");
         //System.out.println("Korttipakka" + korttipakka);
@@ -114,7 +128,6 @@ public class VenttiGUI extends javax.swing.JFrame {
 
     private void jääButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jääButtonActionPerformed
         //kun pelaaja painaa "Jää" nappia
-        
         lisääButton.setEnabled(false);
         lisääButton.setVisible(false);
     }//GEN-LAST:event_jääButtonActionPerformed
@@ -156,11 +169,14 @@ public class VenttiGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JTextArea TextAreaEmannanKortit;
     private javax.swing.JTextArea TextAreaPelaajanKortit;
+    private javax.swing.JTextField emantaSummaText;
     private javax.swing.JScrollPane jScrollPane2;
+    private javax.swing.JScrollPane jScrollPane3;
     private javax.swing.JButton jääButton;
     private javax.swing.JLabel labelBackground;
     private javax.swing.JButton lisääButton;
-    private javax.swing.JTextField pelaajaSumma;
+    private javax.swing.JTextField pelaajaSummaText;
     // End of variables declaration//GEN-END:variables
 }
