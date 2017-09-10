@@ -31,4 +31,4 @@ public class Pelaaja {
         
         return korttienSumma;
     }
-}
+}   

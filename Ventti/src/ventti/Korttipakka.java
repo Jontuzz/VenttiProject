@@ -34,7 +34,6 @@ public class Korttipakka {
     }
     
     public void poistaKorttiPakasta(int indeksi) {
-        System.out.println("------ Poistetaan kortti " + this.korttiPakka.get(indeksi));
         this.korttiPakka.remove(getKortti(indeksi));
     }
     
