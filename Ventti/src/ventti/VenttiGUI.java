@@ -66,7 +66,7 @@ public class VenttiGUI extends javax.swing.JFrame {
         TextAreaEmannanKortit.setColumns(20);
         TextAreaEmannanKortit.setLineWrap(true);
         TextAreaEmannanKortit.setRows(10);
-        TextAreaEmannanKortit.setText("Pelaajan kortit:");
+        TextAreaEmannanKortit.setText("Emännän kortit:");
         jScrollPane3.setViewportView(TextAreaEmannanKortit);
 
         getContentPane().add(jScrollPane3, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 140, 200));
@@ -99,11 +99,11 @@ public class VenttiGUI extends javax.swing.JFrame {
         int min = 0;
         int max = korttipakka.getPakanKoko();
         int range = (int) (max - min) + 1;
-        
         int random = (int) (Math.random() * range) + min;
-        //System.out.println("----------------------------------");
+        
         //lisätään pelaajalle kortti, joka poistetaan
         pelaaja.lisaaKorttiPelaajalle(korttipakka.getKortti(random));
+        
         //haetaan pelaajan pakkaan lisätyn kortin tiedot
         String korttiMaa = korttipakka.getKortti(random).getMaa();
         int korttiArvo = korttipakka.getKortti(random).getArvo();
@@ -111,25 +111,19 @@ public class VenttiGUI extends javax.swing.JFrame {
         //lisätään kortin tiedot text areaan
         TextAreaPelaajanKortit.append("\n" + pelaajaKortti);
         
-        //System.out.println("------ Lisätään kortti pelaajalle " + korttipakka.getKortti(random));
         //poistetaan kortti koko korttipakasta
         korttipakka.poistaKorttiPakasta(random);
         
         
         pelaajaSummaText.setText("Korttien summa: " + pelaaja.getPelaajanKorttienSumma());
-        
-        //System.out.println("--------------------------");
-        //System.out.println("Korttipakka" + korttipakka);
-        //System.out.println("Pelaajan kortit" + pelaaja);
-        //System.out.println("Korttipakka" + korttipakka);
-        
-        //System.out.println("Pelaajan korttien summa " + pelaaja.getPelaajanKorttienSumma());
     }//GEN-LAST:event_lisääButtonActionPerformed
 
     private void jääButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jääButtonActionPerformed
         //kun pelaaja painaa "Jää" nappia
         lisääButton.setEnabled(false);
         lisääButton.setVisible(false);
+        
+        
     }//GEN-LAST:event_jääButtonActionPerformed
 
     /**

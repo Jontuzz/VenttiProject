@@ -72,7 +72,7 @@
             <Property name="columns" type="int" value="20"/>
             <Property name="lineWrap" type="boolean" value="true"/>
             <Property name="rows" type="int" value="10"/>
-            <Property name="text" type="java.lang.String" value="Pelaajan kortit:"/>
+            <Property name="text" type="java.lang.String" value="Em&#xe4;nn&#xe4;n kortit:"/>
           </Properties>
         </Component>
       </SubComponents>
