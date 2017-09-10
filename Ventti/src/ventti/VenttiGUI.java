@@ -100,10 +100,12 @@ public class VenttiGUI extends javax.swing.JFrame {
         
 
         int min = 0;
-        int max = korttipakka.getPakanKoko();
+        int max = 1;
+        //int max = korttipakka.getPakanKoko();
         int range = (int) (max - min) + 1;
         int random = (int) (Math.random() * range) + min;
-        System.out.println(korttipakka.getPakanKoko());
+        //System.out.println(korttipakka.getPakanKoko());
+        //System.out.println(pelaaja.getKorttienMaara());
         //lisätään pelaajalle kortti, joka poistetaan
         if (random <= korttipakka.getPakanKoko()) {
             pelaaja.lisaaKortti(korttipakka.getKortti(random));
@@ -158,7 +160,7 @@ public class VenttiGUI extends javax.swing.JFrame {
             }
 
         }
-        TarkistaVoitto tarkistaVoitto = new TarkistaVoitto(emanta.getKorttienSumma(), pelaaja.getKorttienSumma());
+        TarkistaVoitto tarkistaVoitto = new TarkistaVoitto(emanta.getKorttienSumma(), pelaaja.getKorttienSumma(), pelaaja.getKorttienMaara());
         voittoTeksti.setText(tarkistaVoitto.kumpiVoitti());
     }//GEN-LAST:event_jääButtonActionPerformed
 

@@ -14,13 +14,20 @@ public class Pelaaja {
     }
     
     public int getKorttienMaara() {
-        return this.pelaajanPelaamatKortit.size() - 1;
+        
+        int korttienMaara = 0;
+        
+        for (Kortti maara : this.pelaajanPelaamatKortit) {
+            korttienMaara++;
+        }
+        
+        return korttienMaara;
     }
     
     public int getKorttienSumma() {
         int korttienSumma = 0;
         
-        for (Kortti pelaajanKortit : pelaajanPelaamatKortit) {
+        for (Kortti pelaajanKortit : this.pelaajanPelaamatKortit) {
             korttienSumma += pelaajanKortit.getArvo();
         }
         
