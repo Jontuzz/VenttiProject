@@ -1,6 +1,8 @@
 package ventti;
 
 import javax.swing.JButton;
+import javax.swing.JLabel;
+import sun.security.util.Length;
 
 public class VenttiGUI extends javax.swing.JFrame {
 
@@ -16,6 +18,8 @@ public class VenttiGUI extends javax.swing.JFrame {
         initComponents();
         jääButton.setEnabled(false);
         jääButton.setVisible(false);
+        TextAreaPelaajanKortit.setEditable(false);
+        pelaajaSumma.setText("Korttien summa: " + pelaaja.getPelaajanKorttienSumma());
     }
 
     /**
@@ -29,7 +33,10 @@ public class VenttiGUI extends javax.swing.JFrame {
 
         lisääButton = new javax.swing.JButton();
         jääButton = new javax.swing.JButton();
-        jLabel1 = new javax.swing.JLabel();
+        jScrollPane2 = new javax.swing.JScrollPane();
+        TextAreaPelaajanKortit = new javax.swing.JTextArea();
+        pelaajaSumma = new javax.swing.JTextField();
+        labelBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 600));
@@ -41,7 +48,7 @@ public class VenttiGUI extends javax.swing.JFrame {
                 lisääButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(lisääButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
+        getContentPane().add(lisääButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
 
         jääButton.setText("Jää");
         jääButton.addActionListener(new java.awt.event.ActionListener() {
@@ -49,10 +56,19 @@ public class VenttiGUI extends javax.swing.JFrame {
                 jääButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jääButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, -1, -1));
+        getContentPane().add(jääButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, -1, -1));
 
-        jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ventti/korttiPöytä.jpg"))); // NOI18N
-        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 280));
+        TextAreaPelaajanKortit.setColumns(20);
+        TextAreaPelaajanKortit.setLineWrap(true);
+        TextAreaPelaajanKortit.setRows(10);
+        TextAreaPelaajanKortit.setText("Pelaajan kortit:");
+        jScrollPane2.setViewportView(TextAreaPelaajanKortit);
+
+        getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 140, 200));
+        getContentPane().add(pelaajaSumma, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 140, -1));
+
+        labelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ventti/korttiPöytä.jpg"))); // NOI18N
+        getContentPane().add(labelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 280));
 
         setSize(new java.awt.Dimension(533, 319));
         setLocationRelativeTo(null);
@@ -71,19 +87,29 @@ public class VenttiGUI extends javax.swing.JFrame {
         int range = (int) (max - min) + 1;
         
         int random = (int) (Math.random() * range) + min;
-        System.out.println("----------------------------------");
+        //System.out.println("----------------------------------");
         //lisätään pelaajalle kortti, joka poistetaan
         pelaaja.lisaaKorttiPelaajalle(korttipakka.getKortti(random));
-        System.out.println("------ Lisätään kortti pelaajalle " + korttipakka.getKortti(random));
+        //haetaan pelaajan pakkaan lisätyn kortin tiedot
+        String korttiMaa = korttipakka.getKortti(random).getMaa();
+        int korttiArvo = korttipakka.getKortti(random).getArvo();
+        String pelaajaKortti = korttiMaa + korttiArvo;
+        //lisätään kortin tiedot text areaan
+        TextAreaPelaajanKortit.append("\n" + pelaajaKortti);
+        
+        //System.out.println("------ Lisätään kortti pelaajalle " + korttipakka.getKortti(random));
         //poistetaan kortti koko korttipakasta
         korttipakka.poistaKorttiPakasta(random);
         
-        System.out.println("--------------------------");
-        System.out.println("Korttipakka" + korttipakka);
-        System.out.println("Pelaajan kortit" + pelaaja);
-        System.out.println("Korttipakka" + korttipakka);
         
-        System.out.println("Pelaajan korttien summa " + pelaaja.getPelaajanKorttienSumma());
+        pelaajaSumma.setText("Korttien summa: " + pelaaja.getPelaajanKorttienSumma());
+        
+        //System.out.println("--------------------------");
+        //System.out.println("Korttipakka" + korttipakka);
+        //System.out.println("Pelaajan kortit" + pelaaja);
+        //System.out.println("Korttipakka" + korttipakka);
+        
+        //System.out.println("Pelaajan korttien summa " + pelaaja.getPelaajanKorttienSumma());
     }//GEN-LAST:event_lisääButtonActionPerformed
 
     private void jääButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jääButtonActionPerformed
@@ -130,8 +156,11 @@ public class VenttiGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JLabel jLabel1;
+    private javax.swing.JTextArea TextAreaPelaajanKortit;
+    private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JButton jääButton;
+    private javax.swing.JLabel labelBackground;
     private javax.swing.JButton lisääButton;
+    private javax.swing.JTextField pelaajaSumma;
     // End of variables declaration//GEN-END:variables
 }
