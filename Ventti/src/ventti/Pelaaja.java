@@ -9,11 +9,6 @@ public class Pelaaja {
         this.pelaajanPelaamatKortit = new ArrayList<>();
     }
     
-    @Override
-    public String toString() {
-        return this.pelaajanPelaamatKortit.toString();
-    }
-    
     public void lisaaKorttiPelaajalle(Kortti pelaajanKortti) {
         this.pelaajanPelaamatKortit.add(pelaajanKortti);
     }
@@ -30,5 +25,10 @@ public class Pelaaja {
         }
         
         return korttienSumma;
+    }
+    
+    @Override
+    public String toString() {
+        return this.pelaajanPelaamatKortit.toString();
     }
 }   

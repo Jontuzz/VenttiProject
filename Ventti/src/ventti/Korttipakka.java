@@ -38,11 +38,12 @@ public class Korttipakka {
     }
     
     public int getPakanKoko() {
-        return this.korttiPakka.size() - 1;
+        return this.korttiPakka.size();
     }
     
     //muutetaan ArrayList tulostus muotoon
     //tällä metodilla voidaan tulostaa ArrayList
+    @Override
     public String toString() {
         return "Korttipakassa on kortit: " + this.korttiPakka;
     }
