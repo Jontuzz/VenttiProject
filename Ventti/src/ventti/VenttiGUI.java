@@ -1,9 +1,10 @@
 package ventti;
 
-import java.util.Random;
+import javax.swing.JButton;
 
 public class VenttiGUI extends javax.swing.JFrame {
 
+    //luodaan korttipakka, emäntä ja pelaaja
     Korttipakka korttipakka = new Korttipakka();
     Emanta jakaja = new Emanta();
     Pelaaja pelaaja = new Pelaaja();
@@ -13,6 +14,8 @@ public class VenttiGUI extends javax.swing.JFrame {
      */
     public VenttiGUI() {
         initComponents();
+        jääButton.setEnabled(false);
+        jääButton.setVisible(false);
     }
 
     /**
@@ -24,24 +27,29 @@ public class VenttiGUI extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        jButton2 = new javax.swing.JButton();
-        jButton1 = new javax.swing.JButton();
+        lisääButton = new javax.swing.JButton();
+        jääButton = new javax.swing.JButton();
         jLabel1 = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
         setPreferredSize(new java.awt.Dimension(600, 600));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
-        jButton2.setText("Lisää");
-        jButton2.addActionListener(new java.awt.event.ActionListener() {
+        lisääButton.setText("Lisää");
+        lisääButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButton2ActionPerformed(evt);
+                lisääButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jButton2, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
+        getContentPane().add(lisääButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(100, 220, -1, -1));
 
-        jButton1.setText("Jää");
-        getContentPane().add(jButton1, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, -1, -1));
+        jääButton.setText("Jää");
+        jääButton.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                jääButtonActionPerformed(evt);
+            }
+        });
+        getContentPane().add(jääButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 220, -1, -1));
 
         jLabel1.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ventti/korttiPöytä.jpg"))); // NOI18N
         getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 280));
@@ -50,8 +58,13 @@ public class VenttiGUI extends javax.swing.JFrame {
         setLocationRelativeTo(null);
     }// </editor-fold>//GEN-END:initComponents
 
-    private void jButton2ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton2ActionPerformed
-        //lisää nappi
+    private void lisääButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lisääButtonActionPerformed
+        //kun pelaaja painaa "Lisää" nappia
+
+        if(pelaaja.getPelaajanKorttienMaara() >= 1) {
+            jääButton.setVisible(true);
+            jääButton.setEnabled(true);
+        }
         
         int min = 0;
         int max = korttipakka.getPakanKoko();
@@ -71,17 +84,19 @@ public class VenttiGUI extends javax.swing.JFrame {
         System.out.println("Korttipakka" + korttipakka);
         
         System.out.println("Pelaajan korttien summa " + pelaaja.getPelaajanKorttienSumma());
-    }//GEN-LAST:event_jButton2ActionPerformed
+    }//GEN-LAST:event_lisääButtonActionPerformed
+
+    private void jääButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jääButtonActionPerformed
+        //kun pelaaja painaa "Jää" nappia
+        
+        lisääButton.setEnabled(false);
+        lisääButton.setVisible(false);
+    }//GEN-LAST:event_jääButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
-        //luodaan uusi korttipakka
-        
-
-        
         
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
@@ -115,8 +130,8 @@ public class VenttiGUI extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton jButton1;
-    private javax.swing.JButton jButton2;
     private javax.swing.JLabel jLabel1;
+    private javax.swing.JButton jääButton;
+    private javax.swing.JButton lisääButton;
     // End of variables declaration//GEN-END:variables
 }

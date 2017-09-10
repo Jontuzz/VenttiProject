@@ -13,6 +13,10 @@ public class Pelaaja {
         this.pelaajanPelaamatKortit.add(pelaajanKortti);
     }
     
+    public int getPelaajanKorttienMaara() {
+        return this.pelaajanPelaamatKortit.size();
+    }
+    
     public int getPelaajanKorttienSumma() {
         int korttienSumma = 0;
         
