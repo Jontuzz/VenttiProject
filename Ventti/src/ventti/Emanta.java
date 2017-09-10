@@ -9,15 +9,15 @@ public class Emanta {
         this.emannanPelaamatKortit = new ArrayList<>();
     }
     
-    public void lisaaKorttiEmanalle(Kortti emannanKortti) {
+    public void lisaaKortti(Kortti emannanKortti) {
         this.emannanPelaamatKortit.add(emannanKortti);
     }
     
-    public int getEmannanKorttienMaara() {
+    public int getKorttienMaara() {
         return this.emannanPelaamatKortit.size();
     }
     
-    public int getEmannanKorttienSumma() {
+    public int getKorttienSumma() {
         int korttienSumma = 0;
         
         for (Kortti pelaajanKortit : emannanPelaamatKortit) {

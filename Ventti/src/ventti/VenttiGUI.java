@@ -8,9 +8,9 @@ public class VenttiGUI extends javax.swing.JFrame {
 
     //luodaan korttipakka, emäntä ja pelaaja
     Korttipakka korttipakka = new Korttipakka();
-    Emanta jakaja = new Emanta();
+    Emanta emanta = new Emanta();
     Pelaaja pelaaja = new Pelaaja();
-    
+
     /**
      * Creates new form VenttiGUI
      */
@@ -19,9 +19,9 @@ public class VenttiGUI extends javax.swing.JFrame {
         jääButton.setEnabled(false);
         jääButton.setVisible(false);
         TextAreaPelaajanKortit.setEditable(false);
-        pelaajaSummaText.setText("Korttien summa: " + pelaaja.getPelaajanKorttienSumma());
+        pelaajaSummaText.setText("Korttien summa: " + pelaaja.getKorttienSumma());
         TextAreaEmannanKortit.setEditable(false);
-        emantaSummaText.setText("Korttien summa: " + pelaaja.getPelaajanKorttienSumma());
+        emantaSummaText.setText("Korttien summa: " + pelaaja.getKorttienSumma());
     }
 
     /**
@@ -91,46 +91,65 @@ public class VenttiGUI extends javax.swing.JFrame {
     private void lisääButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_lisääButtonActionPerformed
         //kun pelaaja painaa "Lisää" nappia
 
-        if(pelaaja.getPelaajanKorttienMaara() >= 1) {
+        if (pelaaja.getKorttienMaara() >= 0) {
             jääButton.setVisible(true);
             jääButton.setEnabled(true);
         }
-        
+
         int min = 0;
         int max = korttipakka.getPakanKoko();
         int range = (int) (max - min) + 1;
         int random = (int) (Math.random() * range) + min;
-        
+
         //lisätään pelaajalle kortti, joka poistetaan
-        pelaaja.lisaaKorttiPelaajalle(korttipakka.getKortti(random));
-        
+        pelaaja.lisaaKortti(korttipakka.getKortti(random));
+
         //haetaan pelaajan pakkaan lisätyn kortin tiedot
         String korttiMaa = korttipakka.getKortti(random).getMaa();
         int korttiArvo = korttipakka.getKortti(random).getArvo();
         String pelaajaKortti = korttiMaa + korttiArvo;
         //lisätään kortin tiedot text areaan
         TextAreaPelaajanKortit.append("\n" + pelaajaKortti);
-        
+
         //poistetaan kortti koko korttipakasta
         korttipakka.poistaKorttiPakasta(random);
-        
-        
-        pelaajaSummaText.setText("Korttien summa: " + pelaaja.getPelaajanKorttienSumma());
+
+        pelaajaSummaText.setText("Korttien summa: " + pelaaja.getKorttienSumma());
     }//GEN-LAST:event_lisääButtonActionPerformed
 
     private void jääButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jääButtonActionPerformed
         //kun pelaaja painaa "Jää" nappia
         lisääButton.setEnabled(false);
         lisääButton.setVisible(false);
-        
-        
+
+        while (emanta.getKorttienSumma() < 15) {
+            int min = 0;
+            int max = korttipakka.getPakanKoko();
+            int range = (int) (max - min) + 1;
+            int random = (int) (Math.random() * range) + min;
+
+            //lisätään pelaajalle kortti, joka poistetaan
+            emanta.lisaaKortti(korttipakka.getKortti(random));
+
+            //haetaan pelaajan pakkaan lisätyn kortin tiedot
+            String korttiMaa = korttipakka.getKortti(random).getMaa();
+            int korttiArvo = korttipakka.getKortti(random).getArvo();
+            String pelaajaKortti = korttiMaa + korttiArvo;
+            //lisätään kortin tiedot text areaan
+            TextAreaEmannanKortit.append("\n" + pelaajaKortti);
+
+            //poistetaan kortti koko korttipakasta
+            korttipakka.poistaKorttiPakasta(random);
+
+            emantaSummaText.setText("Korttien summa: " + emanta.getKorttienSumma());
+        }
     }//GEN-LAST:event_jääButtonActionPerformed
 
     /**
      * @param args the command line arguments
      */
     public static void main(String args[]) {
-        
+
         /* Set the Nimbus look and feel */
         //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
         /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.

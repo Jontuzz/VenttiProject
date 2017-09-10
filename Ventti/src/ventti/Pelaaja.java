@@ -9,15 +9,15 @@ public class Pelaaja {
         this.pelaajanPelaamatKortit = new ArrayList<>();
     }
     
-    public void lisaaKorttiPelaajalle(Kortti pelaajanKortti) {
+    public void lisaaKortti(Kortti pelaajanKortti) {
         this.pelaajanPelaamatKortit.add(pelaajanKortti);
     }
     
-    public int getPelaajanKorttienMaara() {
+    public int getKorttienMaara() {
         return this.pelaajanPelaamatKortit.size();
     }
     
-    public int getPelaajanKorttienSumma() {
+    public int getKorttienSumma() {
         int korttienSumma = 0;
         
         for (Kortti pelaajanKortit : pelaajanPelaamatKortit) {
