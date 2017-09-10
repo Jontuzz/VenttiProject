@@ -143,6 +143,7 @@ public class VenttiGUI extends javax.swing.JFrame {
 
             emantaSummaText.setText("Korttien summa: " + emanta.getKorttienSumma());
         }
+        
     }//GEN-LAST:event_jääButtonActionPerformed
 
     /**
