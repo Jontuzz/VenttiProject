@@ -9,11 +9,6 @@ public class Emanta {
         this.emannanPelaamatKortit = new ArrayList<>();
     }
     
-    @Override
-    public String toString() {
-        return "Emännän korttipakka" + this.emannanPelaamatKortit;
-    }
-    
     public void lisaaKorttiEmanalle(Kortti emannanKortti) {
         this.emannanPelaamatKortit.add(emannanKortti);
     }
@@ -30,5 +25,10 @@ public class Emanta {
         }
         
         return korttienSumma;
+    }
+    
+    @Override
+    public String toString() {
+        return "Emännän korttipakka" + this.emannanPelaamatKortit;
     }
 }
