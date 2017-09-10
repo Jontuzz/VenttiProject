@@ -1,5 +1,7 @@
 package ventti;
 
+import javax.swing.JFrame;
+
 public class TarkistaVoitto {
     private int emannanKorttienSumma;
     private int pelaajanKorttienSumma;
@@ -11,11 +13,18 @@ public class TarkistaVoitto {
         this.maksimiArvo = 21;
     }
     
-    public void kumpiVoitti() {
+    public String kumpiVoitti() {
         if (this.emannanKorttienSumma > this.pelaajanKorttienSumma && this.emannanKorttienSumma <= this.maksimiArvo) {
-            System.out.println("Emäntä voitti!");
+            return "Emäntä voitti!";
         } else {
-            System.out.println("Pelaaja voitti");
+            if (this.emannanKorttienSumma < this.maksimiArvo && this.pelaajanKorttienSumma > this.maksimiArvo) {
+                return "Emäntä voitti";
+            } else if (this.emannanKorttienSumma == this.pelaajanKorttienSumma) {
+                return "Emäntä voitti!";
+            }
+            return "Pelaaja voitti!";
         }
     }
+    
 }
+

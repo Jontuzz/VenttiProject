@@ -41,6 +41,8 @@ public class VenttiGUI extends javax.swing.JFrame {
         jScrollPane2 = new javax.swing.JScrollPane();
         TextAreaPelaajanKortit = new javax.swing.JTextArea();
         pelaajaSummaText = new javax.swing.JTextField();
+        voittoTeksti = new javax.swing.JLabel();
+        random = new javax.swing.JLabel();
         labelBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -80,6 +82,8 @@ public class VenttiGUI extends javax.swing.JFrame {
 
         getContentPane().add(jScrollPane2, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 0, 140, 200));
         getContentPane().add(pelaajaSummaText, new org.netbeans.lib.awtextra.AbsoluteConstraints(380, 200, 140, -1));
+        getContentPane().add(voittoTeksti, new org.netbeans.lib.awtextra.AbsoluteConstraints(200, 30, 110, 30));
+        getContentPane().add(random, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
 
         labelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ventti/korttiPöytä.jpg"))); // NOI18N
         getContentPane().add(labelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 280));
@@ -100,21 +104,28 @@ public class VenttiGUI extends javax.swing.JFrame {
         int max = korttipakka.getPakanKoko();
         int range = (int) (max - min) + 1;
         int random = (int) (Math.random() * range) + min;
-
+        System.out.println(korttipakka.getPakanKoko());
         //lisätään pelaajalle kortti, joka poistetaan
-        pelaaja.lisaaKortti(korttipakka.getKortti(random));
+        if (random <= korttipakka.getPakanKoko()) {
+            pelaaja.lisaaKortti(korttipakka.getKortti(random));
 
-        //haetaan pelaajan pakkaan lisätyn kortin tiedot
-        String korttiMaa = korttipakka.getKortti(random).getMaa();
-        int korttiArvo = korttipakka.getKortti(random).getArvo();
-        String pelaajaKortti = korttiMaa + korttiArvo;
-        //lisätään kortin tiedot text areaan
-        TextAreaPelaajanKortit.append("\n" + pelaajaKortti);
+            //haetaan pelaajan pakkaan lisätyn kortin tiedot
+            String korttiMaa = korttipakka.getKortti(random).getMaa();
+            int korttiArvo = korttipakka.getKortti(random).getArvo();
+            String pelaajaKortti = korttiMaa + korttiArvo;
+            //lisätään kortin tiedot text areaan
+            TextAreaPelaajanKortit.append("\n" + pelaajaKortti);
 
-        //poistetaan kortti koko korttipakasta
-        korttipakka.poistaKorttiPakasta(random);
+            //poistetaan kortti koko korttipakasta
+            korttipakka.poistaKorttiPakasta(random);
 
-        pelaajaSummaText.setText("Korttien summa: " + pelaaja.getKorttienSumma());
+            pelaajaSummaText.setText("Korttien summa: " + pelaaja.getKorttienSumma());
+            
+            this.random.setText("" + random);
+        } else {
+            System.out.println("Indeksi oli liian iso!");
+        }
+
     }//GEN-LAST:event_lisääButtonActionPerformed
 
     private void jääButtonActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jääButtonActionPerformed
@@ -128,22 +139,28 @@ public class VenttiGUI extends javax.swing.JFrame {
             int range = (int) (max - min) + 1;
             int random = (int) (Math.random() * range) + min;
 
-            //lisätään pelaajalle kortti, joka poistetaan
-            emanta.lisaaKortti(korttipakka.getKortti(random));
+            if (random <= korttipakka.getPakanKoko()) {
+                //lisätään pelaajalle kortti, joka poistetaan
+                emanta.lisaaKortti(korttipakka.getKortti(random));
 
-            //haetaan pelaajan pakkaan lisätyn kortin tiedot
-            String korttiMaa = korttipakka.getKortti(random).getMaa();
-            int korttiArvo = korttipakka.getKortti(random).getArvo();
-            String pelaajaKortti = korttiMaa + korttiArvo;
-            //lisätään kortin tiedot text areaan
-            TextAreaEmannanKortit.append("\n" + pelaajaKortti);
+                //haetaan pelaajan pakkaan lisätyn kortin tiedot
+                String korttiMaa = korttipakka.getKortti(random).getMaa();
+                int korttiArvo = korttipakka.getKortti(random).getArvo();
+                String pelaajaKortti = korttiMaa + korttiArvo;
+                //lisätään kortin tiedot text areaan
+                TextAreaEmannanKortit.append("\n" + pelaajaKortti);
 
-            //poistetaan kortti koko korttipakasta
-            korttipakka.poistaKorttiPakasta(random);
+                //poistetaan kortti koko korttipakasta
+                korttipakka.poistaKorttiPakasta(random);
 
-            emantaSummaText.setText("Korttien summa: " + emanta.getKorttienSumma());
+                emantaSummaText.setText("Korttien summa: " + emanta.getKorttienSumma());
+            } else {
+                System.out.println("Indeksi oli liian iso!");
+            }
+
         }
-        
+        TarkistaVoitto tarkistaVoitto = new TarkistaVoitto(emanta.getKorttienSumma(), pelaaja.getKorttienSumma());
+        voittoTeksti.setText(tarkistaVoitto.kumpiVoitti());
     }//GEN-LAST:event_jääButtonActionPerformed
 
     /**
@@ -192,5 +209,7 @@ public class VenttiGUI extends javax.swing.JFrame {
     private javax.swing.JLabel labelBackground;
     private javax.swing.JButton lisääButton;
     private javax.swing.JTextField pelaajaSummaText;
+    private javax.swing.JLabel random;
+    private javax.swing.JLabel voittoTeksti;
     // End of variables declaration//GEN-END:variables
 }

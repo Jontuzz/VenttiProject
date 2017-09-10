@@ -14,7 +14,7 @@ public class Emanta {
     }
     
     public int getKorttienMaara() {
-        return this.emannanPelaamatKortit.size();
+        return this.emannanPelaamatKortit.size() - 1;
     }
     
     public int getKorttienSumma() {

@@ -14,7 +14,7 @@ public class Pelaaja {
     }
     
     public int getKorttienMaara() {
-        return this.pelaajanPelaamatKortit.size();
+        return this.pelaajanPelaamatKortit.size() - 1;
     }
     
     public int getKorttienSumma() {

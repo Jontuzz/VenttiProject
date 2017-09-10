@@ -38,7 +38,7 @@ public class Korttipakka {
     }
     
     public int getPakanKoko() {
-        return this.korttiPakka.size();
+        return this.korttiPakka.size() - 1;
     }
     
     //muutetaan ArrayList tulostus muotoon
