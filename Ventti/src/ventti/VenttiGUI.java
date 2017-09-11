@@ -114,7 +114,7 @@ public class VenttiGUI extends javax.swing.JFrame {
             //haetaan pelaajan pakkaan lisätyn kortin tiedot
             String korttiMaa = korttipakka.getKortti(randomPelaaja).getMaa();
             int korttiArvo = korttipakka.getKortti(randomPelaaja).getArvo();
-            String pelaajaKortti = korttiMaa + korttiArvo;
+            String pelaajaKortti = korttiMaa + ", " + korttiArvo;
             //lisätään kortin tiedot text areaan
             TextAreaPelaajanKortit.append("\n" + pelaajaKortti);
 
@@ -150,7 +150,7 @@ public class VenttiGUI extends javax.swing.JFrame {
                 //haetaan pelaajan pakkaan lisätyn kortin tiedot
                 String korttiMaa = korttipakka.getKortti(randomEmanta).getMaa();
                 int korttiArvo = korttipakka.getKortti(randomEmanta).getArvo();
-                String pelaajaKortti = korttiMaa + korttiArvo;
+                String pelaajaKortti = korttiMaa + ", " + korttiArvo;
                 //lisätään kortin tiedot text areaan
                 TextAreaEmannanKortit.append("\n" + pelaajaKortti);
 
