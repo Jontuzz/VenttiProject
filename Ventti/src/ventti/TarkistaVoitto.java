@@ -17,7 +17,15 @@ public class TarkistaVoitto {
     }
 
     public String kumpiVoitti() {
-        
+
+        if (this.pelaajanKorttiSumma > this.emannanKorttiSumma && this.pelaajanKorttiSumma <= this.maksimiArvo) {
+            //Pelaajan korttienSumma on suurempi kuin emännän, mutta pienempi kuin maksimi
+            return "Pelaaja voitti!";
+        } else if (this.emannanKorttiSumma > this.pelaajanKorttiSumma && this.emannanKorttiSumma <= this.maksimiArvo) {
+            //Emännän korttienSumma on suurempi kuin pelaajan, mutta pienempi kuin maksimi
+            return "Emäntä voitti!";
+        }
+
         //Emäntänä haluan että voitan tasatilanteessa
         if (this.emannanKorttiSumma == this.pelaajanKorttiSumma) {
             return "Emäntä voitti!";
@@ -31,15 +39,7 @@ public class TarkistaVoitto {
         } else if (this.emannanKorttiSumma > this.maksimiArvo && this.pelaajanKorttiSumma > this.maksimiArvo) {
             return "Kumpikaan ei voittanut!";
         } else {
-            if (this.emannanKorttiSumma > this.pelaajanKorttiSumma && this.emannanKorttiSumma <= this.maksimiArvo) {
-                //Emännän korttienSumma on suurempi kuin pelaajan, mutta pienempi kuin maksimi
-                return "Emäntä voitti!";
-            } else if (this.pelaajanKorttiSumma > this.emannanKorttiSumma && this.pelaajanKorttiSumma <= this.maksimiArvo) {
-                //Pelaajan korttienSumma on suurempi kuin emännän, mutta pienempi kuin maksimi
-                return "Pelaaja voitti!";
-            } else {
-                return "Kumpikaan ei voittanut!";
-            }
+            return "JEE";
         }
 
         /*if (this.emannanKorttienSumma > this.pelaajanKorttienSumma && this.emannanKorttienSumma <= this.maksimiArvo) {
