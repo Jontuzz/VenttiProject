@@ -39,19 +39,6 @@ public class TarkistaVoitto {
                 return "Kumpikaan ei voittanut, koska moelmmilla liian suuri summa!";
             }
         }
-
-        /*if (this.emannanKorttienSumma > this.pelaajanKorttienSumma && this.emannanKorttienSumma <= this.maksimiArvo) {
-            return "Emäntä voitti!";
-        } else {
-            if (this.emannanKorttienSumma < this.maksimiArvo && this.pelaajanKorttienSumma > this.maksimiArvo) {
-                return "Emäntä voitti";
-            } else if (this.emannanKorttienSumma > this.maksimiArvo && this.pelaajanKorttienSumma > this.maksimiArvo) {
-                return "Kumpikaan ei voittanut!";
-            } else if (this.emannanKorttienSumma == this.pelaajanKorttienSumma) {
-                return "Emäntä voitti!";
-            }
-            return "Pelaaja voitti!";
-        }*/
     }
 
     private boolean onkoPelaajanKasiVentti() {
