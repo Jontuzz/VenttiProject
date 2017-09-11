@@ -47,7 +47,9 @@ public class VenttiGUI extends javax.swing.JFrame {
         labelBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(600, 600));
+        setPreferredSize(new java.awt.Dimension(1000, 1000));
+        setResizable(false);
+        setSize(new java.awt.Dimension(1000, 1000));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
 
         lisääButton.setText("Lisää");
@@ -56,7 +58,7 @@ public class VenttiGUI extends javax.swing.JFrame {
                 lisääButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(lisääButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 230, -1, -1));
+        getContentPane().add(lisääButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(90, 240, -1, -1));
 
         jääButton.setText("Jää");
         jääButton.addActionListener(new java.awt.event.ActionListener() {
@@ -64,7 +66,7 @@ public class VenttiGUI extends javax.swing.JFrame {
                 jääButtonActionPerformed(evt);
             }
         });
-        getContentPane().add(jääButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 230, -1, -1));
+        getContentPane().add(jääButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, -1, -1));
 
         TextAreaEmannanKortit.setColumns(20);
         TextAreaEmannanKortit.setLineWrap(true);
@@ -87,7 +89,7 @@ public class VenttiGUI extends javax.swing.JFrame {
         getContentPane().add(random, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
 
         labelBackground.setIcon(new javax.swing.ImageIcon(getClass().getResource("/ventti/korttiPöytä.jpg"))); // NOI18N
-        getContentPane().add(labelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 520, 280));
+        getContentPane().add(labelBackground, new org.netbeans.lib.awtextra.AbsoluteConstraints(0, 0, 1000, 1000));
 
         setSize(new java.awt.Dimension(533, 319));
         setLocationRelativeTo(null);
