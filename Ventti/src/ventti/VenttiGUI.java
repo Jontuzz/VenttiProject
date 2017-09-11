@@ -100,8 +100,7 @@ public class VenttiGUI extends javax.swing.JFrame {
         
 
         int min = 0;
-        int max = 1;
-        //int max = korttipakka.getPakanKoko();
+        int max = korttipakka.getPakanKoko();
         int range = (int) (max - min) + 1;
         int random = (int) (Math.random() * range) + min;
         //System.out.println(korttipakka.getPakanKoko());
@@ -122,7 +121,7 @@ public class VenttiGUI extends javax.swing.JFrame {
 
             pelaajaSummaText.setText("Korttien summa: " + pelaaja.getKorttienSumma());
             
-            this.random.setText("" + random);
+            //this.random.setText("" + random);
         } else {
             System.out.println("Indeksi oli liian iso!");
         }
