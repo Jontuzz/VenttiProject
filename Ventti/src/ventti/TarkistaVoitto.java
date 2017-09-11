@@ -31,7 +31,11 @@ public class TarkistaVoitto {
             //Pelaajana haluan että käteni on ventti jos siinä on viisi korttia vaikka arvo on alle 21
             return "Ventti, Pelaaja Voitti";
         } else {
-            if (this.pelaajanKorttiSumma <= this.maksimiArvo && this.pelaajanKorttiSumma > this.emannanKorttiSumma || this.pelaajanKorttiSumma < this.emannanKorttiSumma && this.emannanKorttiSumma > this.maksimiArvo && this.pelaajanKorttiSumma < this.maksimiArvo) {
+            if (this.pelaajanKorttiSumma == this.maksimiArvo && this.emannanKorttiSumma > this.maksimiArvo) {
+                return "Pelaaja voitti!";
+            } else if (this.emannanKorttiSumma == this.maksimiArvo && this.pelaajanKorttiSumma > this.maksimiArvo) {
+                return "Emäntä voitti!";
+            } else if (this.pelaajanKorttiSumma <= this.maksimiArvo && this.pelaajanKorttiSumma > this.emannanKorttiSumma || this.pelaajanKorttiSumma < this.emannanKorttiSumma && this.emannanKorttiSumma > this.maksimiArvo && this.pelaajanKorttiSumma < this.maksimiArvo) {
                 //Pelaajan korttien summa on pienempi tai yhtäsuuri kuin maksimi JA pelaajan korttien summa on suurempi kuin emännän TAI pelaajan korttien summa on pienempi kuin emännän korttien summa JA emännän korttien summa on suurempi kuin maksimi JA pelaajan korttien summa pienempi kuim maksimi
                 return "Pelaaja voitti!";
             } else if (this.emannanKorttiSumma <= this.maksimiArvo && this.emannanKorttiSumma > this.pelaajanKorttiSumma || this.emannanKorttiSumma < this.pelaajanKorttiSumma && this.pelaajanKorttiSumma > this.maksimiArvo && this.emannanKorttiSumma < this.maksimiArvo) {

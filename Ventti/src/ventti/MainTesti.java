@@ -4,6 +4,14 @@ package ventti;
 public class MainTesti {
     public static void main(String[] args) {
         
+        //Korttien summa pelaajalla 21, emännällä liikaa//TOIMII
+        TarkistaVoitto summaPelaaja21 = new TarkistaVoitto(45, 21, 6);
+        System.out.println("Korttien summa pelaajalla 21, emännällä liikaa: " + summaPelaaja21.kumpiVoitti());
+        System.out.println("-------------------------------");
+        //Korttien summa emännällä 21, pelaajalla liikaa//TOIMII
+        TarkistaVoitto summaEmäntä21 = new TarkistaVoitto(21, 45, 6);
+        System.out.println("Korttien summa emännällä 21, pelaajalla liikaa: " + summaEmäntä21.kumpiVoitti());
+        System.out.println("-------------------------------");       
         //Emäntänä haluan että voitan tasatilanteessa//TOIMII
         TarkistaVoitto tasaPeli = new TarkistaVoitto(20, 20, 6);
         System.out.println("Tasapeli: " + tasaPeli.kumpiVoitti());
