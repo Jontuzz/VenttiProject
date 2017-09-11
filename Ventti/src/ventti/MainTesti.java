@@ -18,7 +18,7 @@ public class MainTesti {
         
         //Tarkista: Emännän korttienSumma on suurempi kuin pelaajan, mutta pienempi kuin maksimi, joten emäntä voittaa//EI TOIMII!
         TarkistaVoitto emantaSuurempi = new TarkistaVoitto(18, 6, 1);
-        System.out.println("Emäntä voitti, koska suurempi kuin pelaajan käsi: " + pelaajaVentti.kumpiVoitti());
+        System.out.println("Emäntä voitti, koska suurempi kuin pelaajan käsi: " + emantaSuurempi.kumpiVoitti());
         
         //Tarkista: Pelaajan korttienSumma on suurempi kuin emännän, mutta pienempi kuin maksimi//TOIMII
         TarkistaVoitto pelaajaSuurempi = new TarkistaVoitto(6, 18, 4);//Ei toimi

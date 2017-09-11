@@ -25,24 +25,20 @@ public class TarkistaVoitto {
             //Emännän korttienSumma on suurempi kuin pelaajan, mutta pienempi kuin maksimi
             return "Emäntä voitti!";
         } else {
-            return "Kumpikaan ei voittanut!";
+            //Emäntänä haluan että voitan tasatilanteessa
+            if (this.emannanKorttiSumma == this.pelaajanKorttiSumma) {
+                return "Tasatilanne: Emäntä voitti!";
+            } else if (this.emannanKorttiSumma == 20 && onkoPelaajanKasiVentti()) {
+                //Emäntänä haluan että voitan myös jos oman käteni arvo on 20 vaikka pelaajalla olisi ventti
+                //sama kuin "emannanKorttiSumma == 20 && onkoPelaajanKasiVentti() == true"
+                return "Emäntä voitti! Pelaajalla Ventti, mutta emännän korttien summa 20";
+            } else if (onkoPelaajanKasiVentti()) {
+                //Pelaajana haluan että käteni on ventti jos siinä on viisi korttia vaikka arvo on alle 21
+                return "Ventti, Pelaaja Voitti";
+            } else {
+                return "Kumpikaan ei voittanut, koska moelmmilla liian suuri summa!";
+            }
         }
-
-        /*//Emäntänä haluan että voitan tasatilanteessa
-        if (this.emannanKorttiSumma == this.pelaajanKorttiSumma) {
-            return "Emäntä voitti!";
-        } else if (this.emannanKorttiSumma == 20 && onkoPelaajanKasiVentti()) {
-            //Emäntänä haluan että voitan myös jos oman käteni arvo on 20 vaikka pelaajalla olisi ventti
-            //sama kuin "emannanKorttiSumma == 20 && onkoPelaajanKasiVentti() == true"
-            return "Emäntä voitti!";
-        } else if (onkoPelaajanKasiVentti()) {
-            //Pelaajana haluan että käteni on ventti jos siinä on viisi korttia vaikka arvo on alle 21
-            return "Ventti, Pelaaja Voitti";
-        } else if (this.emannanKorttiSumma > this.maksimiArvo && this.pelaajanKorttiSumma > this.maksimiArvo) {
-            return "Kumpikaan ei voittanut!";
-        } else {
-            return "JEE";
-        }*/
 
         /*if (this.emannanKorttienSumma > this.pelaajanKorttienSumma && this.emannanKorttienSumma <= this.maksimiArvo) {
             return "Emäntä voitti!";
