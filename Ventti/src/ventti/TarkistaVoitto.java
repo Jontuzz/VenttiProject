@@ -24,9 +24,11 @@ public class TarkistaVoitto {
         } else if (this.emannanKorttiSumma > this.pelaajanKorttiSumma && this.emannanKorttiSumma <= this.maksimiArvo) {
             //Emännän korttienSumma on suurempi kuin pelaajan, mutta pienempi kuin maksimi
             return "Emäntä voitti!";
+        } else {
+            return "Kumpikaan ei voittanut!";
         }
 
-        //Emäntänä haluan että voitan tasatilanteessa
+        /*//Emäntänä haluan että voitan tasatilanteessa
         if (this.emannanKorttiSumma == this.pelaajanKorttiSumma) {
             return "Emäntä voitti!";
         } else if (this.emannanKorttiSumma == 20 && onkoPelaajanKasiVentti()) {
@@ -40,7 +42,7 @@ public class TarkistaVoitto {
             return "Kumpikaan ei voittanut!";
         } else {
             return "JEE";
-        }
+        }*/
 
         /*if (this.emannanKorttienSumma > this.pelaajanKorttienSumma && this.emannanKorttienSumma <= this.maksimiArvo) {
             return "Emäntä voitti!";
