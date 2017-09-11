@@ -1,5 +1,6 @@
 package ventti;
 
+import java.util.Random;
 import javax.swing.JButton;
 import javax.swing.JLabel;
 import sun.security.util.Length;
@@ -97,12 +98,14 @@ public class VenttiGUI extends javax.swing.JFrame {
 
         jääButton.setVisible(true);
         jääButton.setEnabled(true);
-        
 
         int min = 0;
         int max = korttipakka.getPakanKoko();
-        int range = (int) (max - min) + 1;
-        int random = (int) (Math.random() * range) + min;
+        int range = (max - min) + 1;
+        // parametreiksi yläraja - alajara ja lopputulemaan lisätään alaraja
+        // koska metodi palauttaa oletuksena 0 - yläraj
+        int random = new Random().nextInt(max - min) - min;
+        System.out.println(random);
         //System.out.println(korttipakka.getPakanKoko());
         //System.out.println(pelaaja.getKorttienMaara());
         //lisätään pelaajalle kortti, joka poistetaan
@@ -120,7 +123,7 @@ public class VenttiGUI extends javax.swing.JFrame {
             korttipakka.poistaKorttiPakasta(random);
 
             pelaajaSummaText.setText("Korttien summa: " + pelaaja.getKorttienSumma());
-            
+
             //this.random.setText("" + random);
         } else {
             System.out.println("Indeksi oli liian iso!");
@@ -136,9 +139,11 @@ public class VenttiGUI extends javax.swing.JFrame {
         while (emanta.getKorttienSumma() < 15) {
             int min = 0;
             int max = korttipakka.getPakanKoko();
-            int range = (int) (max - min) + 1;
-            int random = (int) (Math.random() * range) + min;
-
+            int range = (max - min) + 1;
+            // parametreiksi yläraja - alajara ja lopputulemaan lisätään alaraja
+            // koska metodi palauttaa oletuksena 0 - yläraj
+            int random = new Random().nextInt(max - min) - min;
+            System.out.println("Emäntä random: " + random);
             if (random <= korttipakka.getPakanKoko()) {
                 //lisätään pelaajalle kortti, joka poistetaan
                 emanta.lisaaKortti(korttipakka.getKortti(random));
