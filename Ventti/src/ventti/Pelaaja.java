@@ -38,4 +38,4 @@ public class Pelaaja {
     public String toString() {
         return this.pelaajanPelaamatKortit.toString();
     }
-}   
+}
