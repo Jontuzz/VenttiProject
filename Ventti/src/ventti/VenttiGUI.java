@@ -103,7 +103,6 @@ public class VenttiGUI extends javax.swing.JFrame {
 
         int min = 0;
         int max = korttipakka.getPakanKoko();
-        int range = (max - min) + 1;
         // parametreiksi yläraja - alajara ja lopputulemaan lisätään alaraja
         // koska metodi palauttaa oletuksena 0 - yläraj
         int randomPelaaja = new Random().nextInt(max - min) - min;
@@ -138,7 +137,6 @@ public class VenttiGUI extends javax.swing.JFrame {
         while (emanta.getKorttienSumma() < 15) {
             int min = 0;
             int max = korttipakka.getPakanKoko();
-            int range = (max - min) + 1;
             // parametreiksi yläraja - alajara ja lopputulemaan lisätään alaraja
             // koska metodi palauttaa oletuksena 0 - yläraj
             int randomEmanta = new Random().nextInt(max - min) - min;
