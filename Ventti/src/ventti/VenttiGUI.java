@@ -29,6 +29,7 @@ public class VenttiGUI extends javax.swing.JFrame {
         pelaajaSummaText.setText("Korttien summa: " + pelaaja.getKorttienSumma());
         TextAreaEmannanKortit.setEditable(false);
         emantaSummaText.setText("Korttien summa: " + pelaaja.getKorttienSumma());
+        close.setVisible(false);
     }
 
     /**
@@ -42,6 +43,7 @@ public class VenttiGUI extends javax.swing.JFrame {
 
         lisääButton = new javax.swing.JButton();
         jääButton = new javax.swing.JButton();
+        close = new javax.swing.JButton();
         jScrollPane3 = new javax.swing.JScrollPane();
         TextAreaEmannanKortit = new javax.swing.JTextArea();
         emantaSummaText = new javax.swing.JTextField();
@@ -72,6 +74,14 @@ public class VenttiGUI extends javax.swing.JFrame {
             }
         });
         getContentPane().add(jääButton, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, -1, -1));
+
+        close.setText("Sulje");
+        close.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                closeActionPerformed(evt);
+            }
+        });
+        getContentPane().add(close, new org.netbeans.lib.awtextra.AbsoluteConstraints(390, 240, -1, -1));
 
         TextAreaEmannanKortit.setColumns(20);
         TextAreaEmannanKortit.setLineWrap(true);
@@ -169,8 +179,15 @@ public class VenttiGUI extends javax.swing.JFrame {
         
         TarkistaVoitto tarkistaVoitto = new TarkistaVoitto(emanta.getKorttienSumma(), pelaaja.getKorttienSumma(), pelaaja.getKorttienMaara());
         voittoTeksti.setText(tarkistaVoitto.kumpiVoitti());
+        jääButton.setEnabled(false);
+        jääButton.setVisible(false);
         
+        close.setVisible(rootPaneCheckingEnabled);
     }//GEN-LAST:event_jääButtonActionPerformed
+
+    private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
+        System.exit(0);
+    }//GEN-LAST:event_closeActionPerformed
 
     /**
      * @param args the command line arguments
@@ -211,6 +228,7 @@ public class VenttiGUI extends javax.swing.JFrame {
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JTextArea TextAreaEmannanKortit;
     private javax.swing.JTextArea TextAreaPelaajanKortit;
+    private javax.swing.JButton close;
     private javax.swing.JTextField emantaSummaText;
     private javax.swing.JScrollPane jScrollPane2;
     private javax.swing.JScrollPane jScrollPane3;
