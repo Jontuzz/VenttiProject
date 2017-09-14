@@ -1,8 +1,14 @@
 package ventti;
 
+import java.awt.Panel;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import java.util.Random;
+import java.util.logging.Level;
+import java.util.logging.Logger;
 import javax.swing.JButton;
 import javax.swing.JLabel;
+import javax.swing.Timer;
 import sun.security.util.Length;
 
 public class VenttiGUI extends javax.swing.JFrame {
@@ -47,7 +53,6 @@ public class VenttiGUI extends javax.swing.JFrame {
         labelBackground = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
-        setPreferredSize(new java.awt.Dimension(1000, 1000));
         setResizable(false);
         setSize(new java.awt.Dimension(1000, 1000));
         getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
@@ -106,7 +111,7 @@ public class VenttiGUI extends javax.swing.JFrame {
         // parametreiksi yläraja - alajara ja lopputulemaan lisätään alaraja
         // koska metodi palauttaa oletuksena 0 - yläraj
         int randomPelaaja = new Random().nextInt(max - min) - min;
-        
+
         if (randomPelaaja <= korttipakka.getPakanKoko()) {
             pelaaja.lisaaKortti(korttipakka.getKortti(randomPelaaja));
 
@@ -161,8 +166,10 @@ public class VenttiGUI extends javax.swing.JFrame {
             }
 
         }
+        
         TarkistaVoitto tarkistaVoitto = new TarkistaVoitto(emanta.getKorttienSumma(), pelaaja.getKorttienSumma(), pelaaja.getKorttienMaara());
         voittoTeksti.setText(tarkistaVoitto.kumpiVoitti());
+        
     }//GEN-LAST:event_jääButtonActionPerformed
 
     /**
