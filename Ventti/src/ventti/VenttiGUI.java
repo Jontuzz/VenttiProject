@@ -182,7 +182,7 @@ public class VenttiGUI extends javax.swing.JFrame {
         jääButton.setEnabled(false);
         jääButton.setVisible(false);
         
-        close.setVisible(rootPaneCheckingEnabled);
+        close.setVisible(true);
     }//GEN-LAST:event_jääButtonActionPerformed
 
     private void closeActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_closeActionPerformed
